@@ -1,0 +1,24 @@
+.header img {
+  width: 300px;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.header nav {
+  background-color: black;
+  padding: 10px;
+}
+
+.header nav a {
+  color: lightgray;
+  text-decoration: none;
+  padding: 10px;
+  margin: 0 5px;
+  font-weight: 500;
+}
+
+.header nav a:hover {
+  background-color: lightgray;
+  color: black;
+}

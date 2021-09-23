@@ -1,0 +1,17 @@
+.cart {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.cart p {
+  margin-top: 5px;
+}
+.cart-total {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.cart-price {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
