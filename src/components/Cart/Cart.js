@@ -2,24 +2,40 @@ import React from "react";
 import "./Cart.css";
 
 const Cart = (props) => {
-  console.log(props.cart);
+  // console.log(props.cart);
   const { cart } = props;
   console.log(cart);
 
-  const totalReducer = (previous, product) => previous + product.price;
-  const total = cart.reduce(totalReducer, 0);
-  //   shipping
-  const totalShipping = (previous, product) => previous + product.shipping;
-  const shipping = cart.reduce(totalShipping, 0);
+  // Quantity, total, shipping
+  let totalQuantity = 0;
+  let total = 0;
+  let shipping = 0;
+  for (const product of cart) {
+    if (!product.quantity) {
+      product.quantity = 1;
+    }
+    total = total + product.price * product.quantity;
+    shipping = shipping + product.shipping * product.quantity;
+    totalQuantity = totalQuantity + product.quantity;
+  }
+  console.log(totalQuantity);
 
+  // const totalReducer = (previous, product, totalQuantity) =>
+  //   previous + product.price * totalQuantity;
+  // const total = cart.reduce(totalReducer, 0);
+
+  // const totalShipping = (previous, product) => previous + product.shipping;
+  // const shipping = cart.reduce(totalShipping, 0);
+
+  // tax calculation
   const tax = (total + shipping) * 0.1;
-
-  const grandTotal = total + shipping + tax;
+  // grand total
+  const grandTotal = total + tax + shipping;
 
   return (
     <div className="cart">
       <h4>Order Summary</h4>
-      <p>Items ordered: {cart.length}</p>
+      <p>Items ordered: {totalQuantity}</p>
       <div className="cart-total">
         <p className="cart-price">
           <span>Items:</span>

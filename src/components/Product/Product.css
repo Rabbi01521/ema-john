@@ -6,7 +6,7 @@
 }
 
 .product img {
-  margin: 0 15px;
+  margin: 10px 15px;
 }
 
 .name h3 {
@@ -35,4 +35,8 @@
   border: 1px solid gray;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.icon-color {
+  color: goldenrod;
 }

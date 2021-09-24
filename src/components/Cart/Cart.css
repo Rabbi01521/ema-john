@@ -1,6 +1,9 @@
 .cart {
   text-align: center;
-  margin: 10px 0;
+  margin: 10px 6px;
+  border: 2px solid lightgray;
+  padding: 14px;
+  border-radius: 5px;
 }
 
 .cart p {
