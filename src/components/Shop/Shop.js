@@ -9,6 +9,7 @@ const Shop = () => {
   const [cart, setCart] = useState([]);
   // products to be rendered on the UI
   const [displayProducts, setDisplayProducts] = useState([]);
+  const [quantity, setQuantity] = useState({});
 
   useEffect(() => {
     fetch("./products.JSON")
@@ -35,11 +36,20 @@ const Shop = () => {
     }
   }, [products]);
 
+  useEffect(() => {
+    const getData = getStoredCart();
+    setQuantity(getData);
+  }, []);
+
   const handleAddToCart = (product) => {
     const newCart = [...cart, product];
     setCart(newCart);
     // save to local storage (for now)
     addToDb(product.key);
+    const getData = getStoredCart();
+    // console.log(getData);
+    setQuantity(getData);
+    // setCart(getData);
   };
 
   const handleSearch = (event) => {
@@ -72,7 +82,7 @@ const Shop = () => {
           ))}
         </div>
         <div className="cart-container">
-          <Cart cart={cart}></Cart>
+          <Cart cart={cart} quantity={quantity}></Cart>
         </div>
       </div>
     </>

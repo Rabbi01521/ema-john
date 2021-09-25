@@ -3,22 +3,28 @@ import "./Cart.css";
 
 const Cart = (props) => {
   // console.log(props.cart);
-  const { cart } = props;
-  console.log(cart);
+  const { cart, quantity } = props;
+  // console.log(cart);
 
   // Quantity, total, shipping
   let totalQuantity = 0;
   let total = 0;
   let shipping = 0;
+
+  for (const getQuantity in quantity) {
+    // console.log(quantity[getQuantity]);
+    totalQuantity += quantity[getQuantity];
+  }
+
   for (const product of cart) {
     if (!product.quantity) {
       product.quantity = 1;
     }
-    total = total + product.price * product.quantity;
-    shipping = shipping + product.shipping * product.quantity;
-    totalQuantity = totalQuantity + product.quantity;
+    total = total + product.price * totalQuantity;
+    shipping = shipping + product.shipping * totalQuantity;
+    // totalQuantity = totalQuantity + product.quantity;
   }
-  console.log(totalQuantity);
+  // console.log(totalQuantity);
 
   // const totalReducer = (previous, product, totalQuantity) =>
   //   previous + product.price * totalQuantity;
