@@ -38,6 +38,7 @@ const Shop = () => {
 
   useEffect(() => {
     const getData = getStoredCart();
+    console.log(getData);
     setQuantity(getData);
   }, []);
 
@@ -47,11 +48,12 @@ const Shop = () => {
     // save to local storage (for now)
     addToDb(product.key);
     const getData = getStoredCart();
-    // console.log(getData);
+    console.log(getData);
     setQuantity(getData);
     // setCart(getData);
   };
 
+  // console.log(quantity);
   const handleSearch = (event) => {
     const searchText = event.target.value;
 
