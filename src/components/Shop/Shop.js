@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { addToDb, getStoredCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
@@ -84,7 +85,24 @@ const Shop = () => {
           ))}
         </div>
         <div className="cart-container">
-          <Cart cart={cart} quantity={quantity}></Cart>
+          <Cart cart={cart} quantity={quantity}>
+            <Link to={"/review"}>
+              <button
+                style={{
+                  width: "200px",
+                  backgroundColor: "goldenrod",
+                  padding: "5px 10px",
+                  border: "1px solid gray",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  color: "white",
+                  margin: "10px 0",
+                }}
+              >
+                Review Your Order
+              </button>
+            </Link>
+          </Cart>
         </div>
       </div>
     </>

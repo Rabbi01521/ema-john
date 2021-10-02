@@ -45,20 +45,21 @@ const Cart = (props) => {
       <div className="cart-total">
         <p className="cart-price">
           <span>Items:</span>
-          <span>{total.toFixed(2)}</span>
+          <span>${total.toFixed(2)}</span>
         </p>
         <p className="cart-price">
           <span>Shipping & Handling:</span>
-          <span>{shipping.toFixed(2)}</span>
+          <span>${shipping.toFixed(2)}</span>
         </p>
         <p className="cart-price">
           <span>Estimated Tax:</span>
-          <span>{tax.toFixed(2)}</span>
+          <span>${tax.toFixed(2)}</span>
         </p>
         <p className="cart-price">
           <span>Order Total:</span>
-          <span>{grandTotal.toFixed(2)}</span>
+          <span>${grandTotal.toFixed(2)}</span>
         </p>
+        {props.children}
       </div>
     </div>
   );
